@@ -1,0 +1,59 @@
+header {
+    background-color: #00CC66;
+    position: fixed; /* Giữ phần header ở vị trí cố định */
+    top: 0; /* Đặt phần header ở đỉnh trang */
+    left: 0; /* Đặt phần header ở góc trái trang */
+    width: 100%;
+    height: 80px;
+    color: white; /* Màu văn bản trắng */
+    text-align: center; /* Căn giữa nội dung */
+    font-size: 24px; /* Kích thước văn bản */
+    line-height: 80px; /* Độ căng dọc */
+}
+
+ul {
+    margin: 0; /* Xóa margin mặc định */
+    padding: 0; /* Xóa padding mặc định */
+    list-style-type: none; /* Loại bỏ biểu tượng dấu chấm đen */
+}
+
+/* Định dạng ô tìm kiếm */
+.search-input {
+    background-color: #99FFCC;
+    padding: 10px; /* Khoảng cách giữa nội dung và viền ô tìm kiếm */
+    width: 40%; /* Độ rộng ô tìm kiếm */
+    border: none; /* Xóa viền */
+    outline: none; /* Xóa đường viền khi focus */
+    position: relative; /* Đặt vị trí tương đối để vị trí biểu tượng tìm kiếm */
+}
+
+/* Định dạng biểu tượng tìm kiếm */
+.search-icon {
+    position: absolute; /* Đặt vị trí tuyệt đối */
+    top: 54%; /* Đặt ở giữa theo chiều dọc */
+    right: 32%; /* Đặt ở góc bên phải */
+    transform: translateY(-50%); /* Dịch lên trên 50% để căn giữa theo chiều dọc */
+    color: #00CC66; /* Màu của biểu tượng tìm kiếm (tùy chỉnh) */
+    cursor: pointer; /* Biểu tượng tìm kiếm trở thành con trỏ khi di chuột qua */
+}
+
+/* Định dạng biểu tượng người dùng và dòng chữ "Tài khoản của tôi" */
+.user-account {
+    position: absolute; /* Đặt vị trí tuyệt đối */
+    top: 50%; /* Đặt ở giữa theo chiều dọc */
+    right: 5%; /* Đặt ở góc bên phải (khoảng cách bên phải) */
+    transform: translateY(-21%); /* Dịch lên trên 50% để căn giữa theo chiều dọc */
+    display: flex; /* Sử dụng flexbox để căn giữa nội dung ngang và dọc */
+    flex-direction: column; /* Xếp theo cột để user-icon nằm bên trên account-text */
+    align-items: center; /* Căn giữa phần tử con theo chiều ngang */
+    color: #99FFCC; /* Màu văn bản trắng */
+    font-size: 17px; /* Kích thước văn bản */
+}
+
+/* Định dạng biểu tượng người dùng */
+.user-icon {
+    font-size: 26px; /* Kích thước biểu tượng người dùng */
+    color: #99FFCC; /* Màu của biểu tượng người dùng */
+    margin-top: 0px;
+    margin-bottom: -11px; /* Khoảng cách 2px giữa user-icon và account-text */
+}
