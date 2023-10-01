@@ -1,5 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 header {
-    background-color: #00CC66;
+    background-color: #1C7340;
     position: fixed; /* Giữ phần header ở vị trí cố định */
     top: 0; /* Đặt phần header ở đỉnh trang */
     left: 0; /* Đặt phần header ở góc trái trang */
@@ -9,8 +14,12 @@ header {
     text-align: center; /* Căn giữa nội dung */
     font-size: 24px; /* Kích thước văn bản */
     line-height: 80px; /* Độ căng dọc */
-}
+    z-index: 4;
 
+}
+body {
+    background-color: #D5FFD0; /* Đổi màu nền thành màu xanh */
+}
 ul {
     margin: 0; /* Xóa margin mặc định */
     padding: 0; /* Xóa padding mặc định */
@@ -19,41 +28,320 @@ ul {
 
 /* Định dạng ô tìm kiếm */
 .search-input {
-    background-color: #99FFCC;
-    padding: 10px; /* Khoảng cách giữa nội dung và viền ô tìm kiếm */
+    background-color: #B0D9B1;
+    padding: 15px; /* Khoảng cách giữa nội dung và viền ô tìm kiếm */
     width: 40%; /* Độ rộng ô tìm kiếm */
     border: none; /* Xóa viền */
     outline: none; /* Xóa đường viền khi focus */
     position: relative; /* Đặt vị trí tương đối để vị trí biểu tượng tìm kiếm */
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 /* Định dạng biểu tượng tìm kiếm */
 .search-icon {
     position: absolute; /* Đặt vị trí tuyệt đối */
-    top: 54%; /* Đặt ở giữa theo chiều dọc */
+    top: 48%; /* Đặt ở giữa theo chiều dọc */
     right: 32%; /* Đặt ở góc bên phải */
     transform: translateY(-50%); /* Dịch lên trên 50% để căn giữa theo chiều dọc */
-    color: #00CC66; /* Màu của biểu tượng tìm kiếm (tùy chỉnh) */
+    color: #1C7340; /* Màu của biểu tượng tìm kiếm (tùy chỉnh) */
     cursor: pointer; /* Biểu tượng tìm kiếm trở thành con trỏ khi di chuột qua */
 }
 
-/* Định dạng biểu tượng người dùng và dòng chữ "Tài khoản của tôi" */
-.user-account {
-    position: absolute; /* Đặt vị trí tuyệt đối */
-    top: 50%; /* Đặt ở giữa theo chiều dọc */
-    right: 5%; /* Đặt ở góc bên phải (khoảng cách bên phải) */
-    transform: translateY(-21%); /* Dịch lên trên 50% để căn giữa theo chiều dọc */
-    display: flex; /* Sử dụng flexbox để căn giữa nội dung ngang và dọc */
-    flex-direction: column; /* Xếp theo cột để user-icon nằm bên trên account-text */
-    align-items: center; /* Căn giữa phần tử con theo chiều ngang */
-    color: #99FFCC; /* Màu văn bản trắng */
-    font-size: 17px; /* Kích thước văn bản */
+.header-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto); /* Tạo 2 cột tự động */
+    grid-template-rows: repeat(2, auto); /* Tạo 2 hàng tự động */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: flex-end; /* Căn phải */
+    position: absolute;
+    top: 0;
+    right: 3%;
+    width: auto;
+    height: 100%;
 }
-
-/* Định dạng biểu tượng người dùng */
+#no-underline-section a {
+    text-decoration: none;
+    color: #B0D9B1;
+}
+.user-account {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-row: 2; /* Nằm ở hàng thứ hai */
+    color: #B0D9B1;
+    top: 50%;
+    transform: translateY(30%); /* Dịch lên trên 50% để căn giữa theo chiều dọc */
+    font-size: 17px; /* Kích thước văn bản */
+    margin-right: 8px; /* Khoảng cách 2px giữa user-icon và account-text */
+    cursor: pointer;
+}
 .user-icon {
     font-size: 26px; /* Kích thước biểu tượng người dùng */
-    color: #99FFCC; /* Màu của biểu tượng người dùng */
-    margin-top: 0px;
+    color: #B0D9B1; /* Màu của biểu tượng người dùng */
     margin-bottom: -11px; /* Khoảng cách 2px giữa user-icon và account-text */
 }
+/* Định dạng biểu tượng giỏ hàng và dòng chữ "Giỏ hàng" */
+.cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-row: 2; /* Nằm ở hàng thứ hai */
+    color: #B0D9B1;
+    top: 50%;
+    transform: translateY(30%); /* Dịch lên trên 50% để căn giữa theo chiều dọc */
+    font-size: 17px; /* Kích thước văn bản */
+    margin-left: 10px; /* Khoảng cách 2px giữa user-icon và account-text */
+    cursor: pointer;
+}
+.cart-icon {
+    font-size: 26px; /* Kích thước biểu tượng người dùng */
+    color: #B0D9B1; /* Màu của biểu tượng người dùng */
+    margin-bottom: -11px; /* Khoảng cách 2px giữa user-icon và account-text */
+    cursor: pointer;
+}
+
+/* định dạng cho giao diện login/sign up*/
+.login-register {
+    position: fixed;
+    display: flex;
+    width: 100vw;
+    height: 80dvh;
+    top: 100px;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 5;
+}
+ 
+.login {
+    width: 100px;
+    height: 500px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    flex-basis: 45%;
+    border-radius: 5px;
+}
+
+.sign-up {
+    list-style-type: none; /* Loại bỏ biểu tượng dấu chấm đen */
+    color: red;
+    text-decoration: underline;
+    font-size: 16px;
+    margin: 12px;
+    cursor: pointer;
+
+}
+.register {
+    width: 100px;
+    height: 500px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px; 
+    flex-basis: 45%;
+    border-radius: 5px;
+}
+
+h2 {
+    font-size: 25px;
+    padding: 12px 0;
+    color: #00CC66;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 5px;
+}
+
+.login form {
+    padding: 40px;
+}
+
+.register form {
+    padding: 0 40px;
+}
+
+.login form input {
+    height: 30px;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.register form input {
+    height: 30px;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.login label {
+    font-weight: bold;
+    color: #000;
+    margin-top: 15px;
+}
+
+.register label {
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 15px;
+}
+
+
+button {
+    background-color: #999999;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+.login {
+    display: none;
+}
+.register {
+    display: none;
+}
+
+
+/* .......................... nav*/
+.menu-bar {
+    background-color: #D5FFD0; /* Màu nền của menu bar */
+    color: #00CC66; /* Màu văn bản trắng */
+    position: fixed; /* Giữ menu bar ở vị trí cố định */
+    top: 80px; /* Đặt menu bar ở dưới phần header */
+    left: 0;
+    width: 100%;
+    height: 90px; /* Độ cao của menu bar */
+    z-index: 4;
+}
+
+.menu-bar ul {
+    list-style-type: none;
+    display: flex; /* Hiển thị các mục menu theo chiều ngang */
+    justify-content: center; /* Căn giữa các mục menu theo chiều ngang */
+    align-items: center; /* Căn giữa các mục menu theo chiều dọc */
+    height: 100%;
+
+}
+
+.menu-bar li {
+    margin-right: 120px; /* Khoảng cách giữa các mục menu */
+}
+
+.menu-bar a {
+    text-decoration: none; /* Loại bỏ đường gạch chân mặc định cho các liên kết */
+    color: #004225; /* Màu văn bản cho các liên kết */
+    font-size: 22px; /* Kích thước văn bản */
+    cursor: pointer;
+}
+
+.menu-bar img {
+    width: 100px; /* Kích thước hình ảnh logo */
+}
+
+.menu-bar a:hover {
+    color: #00CC66; /* Màu văn bản khi hover qua các liên kết */
+}
+
+
+/*....................... chạy quảng cáo*/
+/* Thêm CSS cho trình chiếu hình ảnh */
+.slideshow {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 0 auto; /* Để căn giữa theo chiều ngang */
+    z-index: 3;
+}
+.slideshow-image img {
+    width: 100%;
+    height: auto;
+    display: block; /* Để hình ảnh hiển thị đúng cách */
+    margin-top: 170px; /* Để căn giữa theo chiều ngang */
+    z-index: 3;
+
+}
+
+/*............... hiện thị sản phẩm*/
+/* CSS cho slider sản phẩm */
+/* Các định dạng CSS khác đã được định nghĩa ở trên */
+
+/* Định dạng dòng chữ "Danh sách sản phẩm second hand" */
+.product-heading {
+    text-align: center;
+    color: #004225;
+    font-size: 24px;
+    margin-top: 20px; /* Khoảng cách giữa tiêu đề và sản phẩm */
+    z-index: 2;
+}
+
+.product {
+    text-align: center;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    min-width: 250px; /* Đảm bảo các sản phẩm có ít nhất 250px chiều rộng */
+    flex: 0 0 auto; /* Đặt chiều rộng của sản phẩm tự co giãn */
+    transition: transform 0.3s ease; /* Hiệu ứng chuyển đổi */
+}
+.product img {
+    max-width: 100%; /* Chiều rộng tối đa là 100% của ô hiển thị sản phẩm */
+    height: auto; /* Giữ tỷ lệ khung hình */
+    display: block; /* Để hình ảnh hiển thị đúng cách */
+    margin-left: 5px; /* Để căn giữa theo chiều ngang */
+    border-radius: 5px;
+}
+
+/* Định dạng mô tả sản phẩm */
+.product p {
+    margin: 5px 0;
+    height: 100px; /* Chiều cao lớn hơn cho mô tả sản phẩm */
+    overflow: hidden; /* Ẩn nội dung mô tả vượt quá chiều cao */
+}
+/* CSS cho danh sách sản phẩm */
+.product-list {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap; /* Thay đổi nowrap thành wrap */
+    overflow-x: auto;
+    gap: 20px;
+    margin-top: 20px;
+    z-index: 1;
+    align-items: stretch;
+}
+.product-carousel {
+    display: flex;
+}
+
+
+/* Định dạng mũi tên điều hướng */
+.navigation {
+    text-align: center;
+    margin-top: 20px; /* Khoảng cách giữa sản phẩm và mũi tên */
+    position: fixed; /* Đặt vị trí cố định */
+    bottom: 20px; /* Khoảng cách từ dưới lên 20px */
+    left: 50%; /* Đặt ở giữa theo chiều ngang */
+    transform: translateX(-50%); /* Dịch lên trên 50% để căn giữa theo chiều ngang */
+}
+
+#prev-btn,
+#next-btn {
+    background-color: #1C7340;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin: 0 10px; /* Khoảng cách giữa hai mũi tên */
+}
+
+#prev-btn:hover,
+#next-btn:hover {
+    background-color: #004225;
+}
+
